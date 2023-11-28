@@ -27,7 +27,7 @@ This Java-based platformer RPG invites players to navigate through a dynamic and
 
 1. Clone the repository to your local machine.
 
-   <code class="!whitespace-pre hljs language-bash">git clone https://github.com/BlindCapt/PlatformerGame.git</code>
+   <code class="!whitespace-pre hljs language-bash">git clone https://github.com/BlindCapt/RPG_Platformer</code>
    </code></div></div></pre>
 2. Open the project in your favorite Java IDE.
 3. Build and run the game.
