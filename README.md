@@ -35,10 +35,9 @@ This Java-based platformer RPG invites players to navigate through a dynamic and
 ## How to Play
 
 1. **Controls:**
-   * WASD: Move character
+   * QD: Move character
    * Spacebar: Jump
    * Left-Click: Attack
-   * Right-Click: Special ability
 2. **Objective:**
    * Navigate through the levels, avoiding obstacles and defeating enemies.
    * Kill the boss to finish the game.
