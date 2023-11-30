@@ -49,13 +49,21 @@ public class UpgradeButton {
     }
 
     public void action() {
-        switch (upgradeType) {
-            case 0 -> playing.getEnemyManager().changeEnemiesLevel();
-            case 1 -> playing.getEnemyManager().changeEnemiesXPRate();
-            case 2 -> playing.getEnemyManager().changeEnemiesGoldRate();
-            case 3 -> playing.getEnemyManager().changeEnemiesDropRate();
+        if (playing.getPlayer().getArgent() >= price){
+            playing.getPlayer().setArgent(playing.getPlayer().getArgent() - price);
+            switch (upgradeType) {
+                case 0 -> playing.getEnemyManager().changeEnemiesLevel();
+                case 1 -> playing.getEnemyManager().changeEnemiesXPRate();
+                case 2 -> playing.getEnemyManager().changeEnemiesGoldRate();
+                case 3 -> playing.getEnemyManager().changeEnemiesDropRate();
+            }
+            price += 100;
         }
+
+
+
     }
+
 
     /// ------------------------------- GETTER AND SETTER ------------------------------- ///
 
@@ -74,5 +82,25 @@ public class UpgradeButton {
 
     public int getHeight() {
         return height;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getUpgradeType() {
+        return upgradeType;
     }
 }

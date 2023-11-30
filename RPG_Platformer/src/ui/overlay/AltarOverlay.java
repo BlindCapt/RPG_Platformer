@@ -102,6 +102,8 @@ public class AltarOverlay {
 
         for (UpgradeButton button : listButton) {
             button.draw(g);
+            g.drawString(String.valueOf(button.getPrice()), button.getX() + button.getWidth() / 2 - 10, button.getY() + button.getHeight() / 2 + 5);
+
         }
 
         if (reloadIsPressed)
@@ -110,6 +112,7 @@ public class AltarOverlay {
             g.drawImage(reloadMapButton[0], reloadX, reloadY, reloadWidth, reloadHeight, null);
 
     }
+
 
 
     //////////// Event handlers ////////////
