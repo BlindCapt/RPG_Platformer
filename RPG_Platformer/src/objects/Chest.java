@@ -41,6 +41,10 @@ public class Chest extends GameObject {
         return chestType;
     }
 
+    public void setChestType(int chestType) {
+        this.chestType = chestType;
+    }
+
     public int getLevel() {
         return level;
     }

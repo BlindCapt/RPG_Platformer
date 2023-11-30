@@ -563,6 +563,7 @@ public class Player extends Entity {
     public void usePotion(int potion) {
         if (potion == LIFE_POTION && nbLifePotions > 0) {
             changeHealth(maxHealth / 2);
+            playing.getPlayer().nbLifePotions--;
         } else if (potion == STM_POTION && nbSTMPotions > 0) {
             changeStamina(maxStamina / 2);
         }

@@ -332,8 +332,7 @@ public class Playing extends State implements StateMethods {
             }
             case KeyEvent.VK_SPACE -> player.setJump(true);
 
-            case KeyEvent.VK_1 -> player.usePotion(LIFE_POTION);
-            case KeyEvent.VK_2 -> player.usePotion(STM_POTION);
+            case KeyEvent.VK_A -> player.usePotion(LIFE_POTION);
         }
 
     }

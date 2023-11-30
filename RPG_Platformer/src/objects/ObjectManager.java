@@ -105,7 +105,7 @@ public class ObjectManager {
         for (Chest ch : chests) {
             if (ch.isActive() && !ch.doAnimation) {
                 if (ch.getHitbox().intersects(attackbox)) {
-                    ch.objState++;
+                    ch.objState = 1;
                     switch (ch.getChestType()) {
                         case 0 -> chestArmorDrop(ch);
                         case 1 ->
