@@ -6,7 +6,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
-public class Menu extends State implements StateMethods{
+public class Menu extends State implements StateMethods {
     /// ------------------------------- ATTRIBUTES ------------------------------- ///
 
     /// ------------------------------- CONSTRUCTOR ------------------------------- ///
@@ -24,7 +24,11 @@ public class Menu extends State implements StateMethods{
 
     @Override
     public void draw(Graphics g) {
+        g.setColor(Color.BLACK);
+        g.fillRect(0, 0, Game.GAME_WIDTH, Game.GAME_HEIGHT);
 
+        g.setColor(Color.WHITE);
+        g.drawString("PRESS ENTER TO START", Game.GAME_WIDTH / 2 - 50, Game.GAME_HEIGHT / 2);
     }
 
     @Override

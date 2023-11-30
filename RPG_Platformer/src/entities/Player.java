@@ -116,7 +116,7 @@ public class Player extends Entity {
         maxHealth = 100;
         baseHp = maxHealth;
         currentHealth = maxHealth;
-        attack = 10;
+        attack = 100000;
         defense = 2;
         stamina = 100;
 
@@ -320,14 +320,14 @@ public class Player extends Entity {
 //        g.drawImage(statusBarImg, statusBarX, statusBarY, statusBarWidth, statusBarHeight, null);
         g.setColor(Color.BLACK);
         g.drawRect(healthBarXStart + statusBarX, healthBarYStart + statusBarY, healthBarWidth, healthBarHeight);
-        g.drawRect(staminaBarXStart + statusBarX, staminaBarYStart + statusBarY, staminaBarWidth, staminaBarHeight);
+//        g.drawRect(staminaBarXStart + statusBarX, staminaBarYStart + statusBarY, staminaBarWidth, staminaBarHeight);
         g.drawRect(XPBarXStart, XPBarYStart, XPBarWidth, XPBarHeight);
 
         g.setColor(Color.RED);
         g.fillRect(healthBarXStart + statusBarX, healthBarYStart + statusBarY, healthWidth, healthBarHeight);
 
-        g.setColor(Color.ORANGE);
-        g.fillRect(staminaBarXStart + statusBarX, staminaBarYStart + statusBarY, staminaWidth, staminaBarHeight);
+//        g.setColor(Color.ORANGE);
+//        g.fillRect(staminaBarXStart + statusBarX, staminaBarYStart + statusBarY, staminaWidth, staminaBarHeight);
 
         g.setColor(Color.YELLOW);
         g.fillRect(XPBarXStart, XPBarYStart, XPWidth, XPBarHeight);

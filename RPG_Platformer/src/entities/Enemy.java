@@ -171,10 +171,15 @@ public class Enemy extends Entity {
     public void hurt(int amount) {
         currentHealth -= (amount / defense);
         if (currentHealth <= 0) {
+            if (this instanceof Necromancer)
+                playing.setGameWin(true);
             enemyDeath();
+
         } else {
-            newState(HURT);
-            aniIndex = 1;
+            if (!(this instanceof Necromancer)) {
+                newState(HURT);
+                aniIndex = 1;
+            }
         }
     }
 

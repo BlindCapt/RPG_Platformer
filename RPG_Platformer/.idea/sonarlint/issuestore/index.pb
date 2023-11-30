@@ -8,8 +8,6 @@ P
 I
 src/gameStates/State.java,7\9\79dfbe04647154e0fcb1dfc959cd15367388dc44
 H
-src/gameStates/Menu.java,e\d\edf4a794397c56baca273c0e45d22a711a00a088
-H
 src/main/GameWindow.java,3\3\333b3886769183cddacf16136b8b0f5d6913ac5f
 M
 src/gameStates/GameState.java,a\b\ab33758711a3f43f43143ec96b37208150470595
@@ -37,8 +35,6 @@ Q
 !src/objects/equipment/Helmet.java,5\b\5bfa2e2e71d30ab958f56a1fe8217749c88ab54a
 H
 src/ui/overlay/Slot.java,b\a\ba247f57e5deb4fc7ed6961277da779cef8c0dfd
-T
-$src/ui/overlay/InventoryOverlay.java,d\5\d532d4462210b52d3436b0accc989881602965d9
 P
  src/ui/overlay/PauseOverlay.java,1\f\1f0863b2809b25f0853ceecb4be001071792a8e4
 N
@@ -51,8 +47,6 @@ P
  src/ui/button/RespawnButton.java,d\b\dba03de38a16d121fb9f9b8d6046d7b132aef155
 B
 src/main/Game.java,2\8\28c27f5f04037c4af9f0b33aeabd8b3851f24b20
-P
- src/ui/overlay/AltarOverlay.java,2\9\29f4b00a07f9c122b5083582524f006f28d75e0e
 P
  src/ui/button/UpgradeButton.java,9\0\90873de408aa10d5a6e04c07c8476e9afbf559bb
 O

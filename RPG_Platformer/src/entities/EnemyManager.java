@@ -413,5 +413,9 @@ public class EnemyManager {
             sk.resetEnemy();
         }
     }
+
+    public List<Necromancer> getNecromancer() {
+        return necromancer;
+    }
 }
 

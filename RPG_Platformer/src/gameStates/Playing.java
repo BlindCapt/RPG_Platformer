@@ -33,6 +33,7 @@ public class Playing extends State implements StateMethods {
     private AltarOverlay altarOverlay;
     private Altar altar;
     private GameOverOverlay gameOverOverlay;
+    private GameWinOverlay gameWinOverlay;
 
     // Game border and level Offset var
     private int xLvlOffset;
@@ -55,6 +56,7 @@ public class Playing extends State implements StateMethods {
     private boolean inventory = false;
     private boolean paused = false;
     private boolean isAltar = false;
+    private boolean gameWin = false;
 
     //
     private boolean inventoryFull = false;
@@ -102,6 +104,7 @@ public class Playing extends State implements StateMethods {
         altarOverlay = new AltarOverlay(this);
         altar = new Altar(10 * Game.TILES_SIZE, 33 * Game.TILES_SIZE);
         gameOverOverlay = new GameOverOverlay(this);
+        gameWinOverlay = new GameWinOverlay();
 
     }
 
@@ -184,7 +187,7 @@ public class Playing extends State implements StateMethods {
 
     @Override
     public void update() {
-        if (!inventory && !paused && !isAltar) {
+        if (!inventory && !paused && !isAltar && !gameWin) {
             enemyManager.update(levelManager.getCurrentLevel().getLvlData(), player);
             objectManager.update();
             objectManager.update(levelManager.getCurrentLevel().getLvlData(), player);
@@ -207,7 +210,6 @@ public class Playing extends State implements StateMethods {
         if (player.getHitBox().intersects(levelManager.getCurrentLevel().getBossRoomHitBoxBottom())) {
             downBorder = GAME_HEIGHT - 2 * Game.TILES_SIZE;
             leftBorder = 0;
-
         }
         if (player.getHitBox().intersects(levelManager.getCurrentLevel().getBossRoomHitBoxCenter())) {
             rightBorder = GAME_WIDTH;
@@ -224,12 +226,13 @@ public class Playing extends State implements StateMethods {
         objectManager.draw(g, xLvlOffset, yLvlOffset);
         altar.draw(g, xLvlOffset, yLvlOffset);
         player.render(g, xLvlOffset, yLvlOffset);
+        drawUI(g);
 
         if (drawInventoryFull)
             g.drawString("INVENTORY FULL", (int) (player.getHitBox().x - xLvlOffset), (int) (player.getHitBox().y - yLvlOffset));
 
 
-        if (inventory || paused || isAltar || player.isDeadBody()) {
+        if (inventory || paused || isAltar || player.isDeadBody() || gameWin) {
             g.setColor(new Color(0, 0, 0, 150));
             g.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
             if (inventory)
@@ -240,6 +243,9 @@ public class Playing extends State implements StateMethods {
                 altarOverlay.draw(g);
             else if (player.isDeadBody())
                 gameOverOverlay.draw(g);
+            else if (gameWin) {
+                gameWinOverlay.draw(g);
+            }
         }
 
 
@@ -250,6 +256,15 @@ public class Playing extends State implements StateMethods {
         hitbox = levelManager.getCurrentLevel().getBossRoomHitBoxCenter();
         g.drawRect((int) (hitbox.x) - xLvlOffset, (int) (hitbox.y) - yLvlOffset, (int) (hitbox.width), (int) (hitbox.height));
 
+    }
+
+    private void drawUI(Graphics g) {
+        if (leftBorder == 0) {
+            g.setColor(Color.RED);
+            int bossHealthBar = (int) ((enemyManager.getNecromancer().get(0).getCurrentHealth() / (float) enemyManager.getNecromancer().get(0).getMaxHealth()) * (GAME_WIDTH - 40));
+
+            g.fillRect(20, GAME_HEIGHT - 30, bossHealthBar, 10);
+        }
     }
 
     public void drawBackgrounds(Graphics g) {
@@ -331,8 +346,6 @@ public class Playing extends State implements StateMethods {
     }
 
 
-
-
     /// ------------------------------- GETTER AND SETTER ------------------------------- ///
 
     public Player getPlayer() {
@@ -405,5 +418,9 @@ public class Playing extends State implements StateMethods {
 
     public int getDownBorder() {
         return downBorder;
+    }
+
+    public void setGameWin(boolean gameWin) {
+        this.gameWin = gameWin;
     }
 }

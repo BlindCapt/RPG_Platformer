@@ -10,8 +10,7 @@ import org.w3c.dom.css.Rect;
 import utilz.LoadSave;
 
 import static utilz.Constants.ObjectConstants.*;
-import static utilz.Constants.Projectiles.VFX1_HEIGHT;
-import static utilz.Constants.Projectiles.VFX1_WIDTH;
+import static utilz.Constants.Projectiles.*;
 
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
@@ -184,7 +183,6 @@ public class ObjectManager {
     }
 
 
-
     public void draw(Graphics g, int xLvlOffset, int yLvlOffset) {
         drawPotions(g, xLvlOffset, yLvlOffset);
         drawChests(g, xLvlOffset, yLvlOffset);
@@ -196,11 +194,14 @@ public class ObjectManager {
         for (Projectile p : projectiles) {
             if (p.isActive()) {
                 g.drawImage(necromancerVfx1,
-                        (int) (p.getHitbox().x - xLvlOffset),
-                        (int) (p.getHitbox().y - yLvlOffset),
+                        (int) (p.getHitbox().x - xLvlOffset - PROJECTILE_XDRAW_OFFSET),
+                        (int) (p.getHitbox().y - yLvlOffset - PROJECTILE_YDRAW_OFFSET),
                         (int) (VFX1_WIDTH * Game.SCALE),
                         (int) (VFX1_HEIGHT * Game.SCALE),
                         null);
+
+                g.setColor(Color.RED);
+                g.drawRect((int) (p.getHitbox().x - xLvlOffset), (int) (p.getHitbox().y - yLvlOffset), (int) p.getHitbox().width, (int) p.getHitbox().height);
             }
         }
     }

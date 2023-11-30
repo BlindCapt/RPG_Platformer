@@ -13,6 +13,7 @@ import static utilz.HelpMethod.IsSightClear;
 public class Necromancer extends Enemy {
 
     private int attackCooldown = 0;
+    private int cpt = 0;
 
     public Necromancer(float x, float y) {
         super(x, y, NECROMANCER_WIDTH, NECROMANCER_HEIGHT, NECROMANCER);
@@ -88,7 +89,7 @@ public class Necromancer extends Enemy {
                     move(lvlData);
                 }
                 case ATTACK -> {
-                    while (attackCooldown < 120) {
+                    while (attackCooldown < 240) {
                         attackCooldown++;
                     }
                     if (aniIndex == 0) {
@@ -99,10 +100,11 @@ public class Necromancer extends Enemy {
                         dir = -1;
                     }
                     if (aniIndex == 6 && !attackChecked) {
-                        playing.getObjectManager().getProjectiles().add(new Projectile((int)getHitBox().x, (int)getHitBox().y, dir,playing));
-
+                        playing.getObjectManager().getProjectiles().add(new Projectile((int) getHitBox().x, (int) getHitBox().y + 60, dir, playing));
+                        attackChecked = true;
+                        System.out.println(cpt++);
                     }
-                    }
+                }
             }
         }
     }

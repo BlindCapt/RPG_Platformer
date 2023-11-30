@@ -30,6 +30,8 @@ public class Projectile {
     private void checkProjectilHit() {
         if (this.hitbox.intersects(playing.getPlayer().getHitBox())) {
             playing.getPlayer().changeHealth(-1);
+            active = false;
+            System.out.println("dmg");
         }
 
     }

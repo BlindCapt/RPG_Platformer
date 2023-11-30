@@ -22,6 +22,9 @@ public class Constants {
         public static final int VFX2_WIDTH = (int) (Game.SCALE * 32);
         public static final int VFX2_HEIGHT = (int) (Game.SCALE * 40);
 
+        public static final int PROJECTILE_XDRAW_OFFSET = (int) (Game.SCALE * 10);
+        public static final int PROJECTILE_YDRAW_OFFSET = (int) (Game.SCALE * 20);
+
         public static final float SPEED = 0.5f * Game.SCALE;
     }
 
