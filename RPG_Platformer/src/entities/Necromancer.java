@@ -18,8 +18,8 @@ public class Necromancer extends Enemy {
         super(x, y, NECROMANCER_WIDTH, NECROMANCER_HEIGHT, NECROMANCER);
         initHitBox(38, 80);
         initAttackBox(85, 35);
-        defense = 50;
-        maxHealth = 500;
+        defense = 20;
+        maxHealth = 100;
         currentHealth = maxHealth;
         walkDir = LEFT;
         attackDistance = Game.TILES_SIZE * 5;

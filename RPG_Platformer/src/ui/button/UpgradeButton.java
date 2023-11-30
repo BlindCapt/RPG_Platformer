@@ -49,7 +49,7 @@ public class UpgradeButton {
     }
 
     public void action() {
-        if (playing.getPlayer().getArgent() >= price){
+        if (playing.getPlayer().getArgent() >= price) {
             playing.getPlayer().setArgent(- price);
             switch (upgradeType) {
                 case 0 -> {
@@ -72,7 +72,6 @@ public class UpgradeButton {
             }
             playing.getEnemyManager().resetAllEnemies();
         }
-
 
 
     }

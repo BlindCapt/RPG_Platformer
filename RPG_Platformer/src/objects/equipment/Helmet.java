@@ -16,9 +16,9 @@ public class Helmet extends Armor {
 
     /// ------------------------------- CONSTRUCTOR ------------------------------- ///
     public Helmet(int x, int y, int set, int level) {
-        super("Helmet", x, y, 10, HELMET, set);
+        super("Helmet", x, y, 2, HELMET, set);
         this.level = level;
-        armor += level * 2;
+        armor += level;
 
 
         loadImage();

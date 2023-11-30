@@ -158,10 +158,10 @@ public class Enemy extends Entity {
 
     protected void checkEnemyHit(Rectangle2D.Float attackBox, Player player) {
         if (attackBox.intersects(player.getHitBox())) {
-            if (getEnemyDmg(enemyType) / player.getSelfDefense() == 0) {
-                player.changeHealth(-1);
+            if ((getEnemyDmg(enemyType) - player.getSelfDefense()) / 2 <= 5) {
+                player.changeHealth(-5);
             } else {
-                player.changeHealth(-(getEnemyDmg(enemyType) / player.getSelfDefense()));
+                player.changeHealth(-((getEnemyDmg(enemyType) - player.getSelfDefense()) / 2));
             }
 
         }
@@ -169,7 +169,7 @@ public class Enemy extends Entity {
     }
 
     public void hurt(int amount) {
-        currentHealth -= (amount / defense);
+        currentHealth -= (amount - defense) / 2;
         if (currentHealth <= 0) {
             if (this instanceof Necromancer)
                 playing.setGameWin(true);

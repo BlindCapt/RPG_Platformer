@@ -11,9 +11,9 @@ public class Boots extends Armor {
 
     /// ------------------------------- CONSTRUCTOR ------------------------------- ///
     public Boots(int x, int y, int set, int level) {
-        super("Boots", x, y, 10, SHOES, set);
+        super("Boots", x, y, 5, SHOES, set);
         this.level = level;
-        armor += level * 2;
+        armor += level;
 
         loadImage();
     }

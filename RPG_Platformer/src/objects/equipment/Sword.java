@@ -11,12 +11,12 @@ public class Sword extends Weapon {
     /// ------------------------------- ATTRIBUTE ------------------------------- ///
     /// ------------------------------- CONSTRUCTOR ------------------------------- ///
     public Sword(int x, int y, int tier, int level) {
-        super("Sword", 10, WEAPON);
+        super("Sword", 5, WEAPON);
         this.x = x;
         this.y = y;
         this.tier = tier;
         this.level = level;
-        damage += level * 3 + tier * 10;
+        damage += level + tier * 10;
 
         loadImage();
         initHitBox(ARMOR_WIDTH, ARMOR_HEIGHT);

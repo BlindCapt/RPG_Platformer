@@ -24,7 +24,7 @@ public class AltarOverlay {
     private int bgWidth;
     private int bgHeight;
     private Rectangle2D.Float hitBoxReloadButton;
-    private int reloadX, reloadY, reloadWidth, reloadHeight;
+    private int reloadX, reloadY, reloadWidth, reloadHeight, reloadPrice = 200;
 
     // Background sprite
     private BufferedImage background;
@@ -93,8 +93,10 @@ public class AltarOverlay {
     }
 
     public void draw(Graphics g) {
+        g.setColor(Color.BLACK);
         // Background
         g.drawImage(background, bgX, bgY, bgWidth, bgHeight, null);
+
 
         for (UpgradeLabel label : listLabel) {
             label.draw(g);
@@ -110,9 +112,8 @@ public class AltarOverlay {
             g.drawImage(reloadMapButton[1], reloadX, reloadY, reloadWidth, reloadHeight, null);
         else
             g.drawImage(reloadMapButton[0], reloadX, reloadY, reloadWidth, reloadHeight, null);
-
+        g.drawString(String.valueOf(reloadPrice), reloadX + reloadWidth / 2 + 80, reloadY + reloadHeight / 2 + 5);
     }
-
 
 
     //////////// Event handlers ////////////

@@ -12,9 +12,9 @@ public class Pants extends Armor {
 
     /// ------------------------------- CONSTRUCTOR ------------------------------- ///
     public Pants(int x, int y, int set, int level) {
-        super("Pants", x, y, 10, LEGS, set);
+        super("Pants", x, y, 2, LEGS, set);
         this.level = level;
-        armor += level * 2;
+        armor += level;
 
         loadImage();
     }
