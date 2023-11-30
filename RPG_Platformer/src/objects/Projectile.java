@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
 import static utilz.Constants.Projectiles.*;
+import static utilz.HelpMethod.IsSolid;
 
 public class Projectile {
 
@@ -16,8 +17,15 @@ public class Projectile {
         this.dir = dir;
     }
 
-    public void update() {
+    public void update(int[][] lvlData) {
         hitbox.x += dir * SPEED;
+        checkProjectileHitWall(lvlData);
+    }
+
+    private void checkProjectileHitWall(int[][] lvlData) {
+        if (IsSolid(hitbox.x, hitbox.y, lvlData)) {
+            active = false;
+        }
     }
 
     public void setPos(int x, int y) {

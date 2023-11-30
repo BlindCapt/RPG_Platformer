@@ -166,15 +166,15 @@ public class ObjectManager {
 
     }
 
-    public void update( int[][]  lvlData, Player player){
+    public void update(int[][] lvlData, Player player) {
         updateProjectiles(lvlData, player);
 
     }
 
-    public void updateProjectiles(int[][] lvlData, Player player){
+    public void updateProjectiles(int[][] lvlData, Player player) {
         for (Projectile p : projectiles) {
             if (p.isActive()) {
-                p.update();
+                p.update(lvlData);
 //                if (p.getHitbox().intersects(player.getHitBox())) {
 //                    player.changeHealth(-10);
 //                    p.setActive(false);
@@ -190,7 +190,7 @@ public class ObjectManager {
         drawProjectiles(g, xLvlOffset, yLvlOffset);
     }
 
-    public void drawProjectiles(Graphics g, int xLvlOffset, int yLvlOffset){
+    public void drawProjectiles(Graphics g, int xLvlOffset, int yLvlOffset) {
         for (Projectile p : projectiles) {
             if (p.isActive()) {
                 g.drawImage(necromancerVfx1,
@@ -202,6 +202,7 @@ public class ObjectManager {
             }
         }
     }
+
     private void drawEquipment(Graphics g, int xLvlOffset, int yLvlOffset) {
         for (Equipment equipment : equipments) {
             if (equipment.isActive())
