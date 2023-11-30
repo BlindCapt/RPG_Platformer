@@ -52,12 +52,25 @@ public class UpgradeButton {
         if (playing.getPlayer().getArgent() >= price){
             playing.getPlayer().setArgent(playing.getPlayer().getArgent() - price);
             switch (upgradeType) {
-                case 0 -> playing.getEnemyManager().changeEnemiesLevel();
-                case 1 -> playing.getEnemyManager().changeEnemiesXPRate();
-                case 2 -> playing.getEnemyManager().changeEnemiesGoldRate();
-                case 3 -> playing.getEnemyManager().changeEnemiesDropRate();
+                case 0 -> {
+                    playing.getEnemyManager().changeEnemiesLevel();
+
+                    price += 100;
+                }
+                case 1 -> {
+                    playing.getEnemyManager().changeEnemiesXPRate();
+                    price += 150;
+                }
+                case 2 -> {
+                    playing.getEnemyManager().changeEnemiesGoldRate();
+                    price += 350;
+                }
+                case 3 -> {
+                    playing.getEnemyManager().changeEnemiesDropRate();
+                    price += 500;
+                }
             }
-            price += 100;
+            playing.getEnemyManager().resetAllEnemies();
         }
 
 

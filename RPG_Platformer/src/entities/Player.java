@@ -299,7 +299,7 @@ public class Player extends Entity {
 
     public void render(Graphics g, int xLvlOffset, int yLvlOffset) {
 
-        drawHitBox(g, xLvlOffset, yLvlOffset);
+//        drawHitBox(g, xLvlOffset, yLvlOffset);
 //        drawAttackBox(g, xLvlOffset, yLvlOffset);
 
         if (deadBody) {

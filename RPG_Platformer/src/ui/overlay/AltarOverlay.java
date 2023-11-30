@@ -60,19 +60,19 @@ public class AltarOverlay {
 
         // Level
         listLabel[0] = new UpgradeLabel(450, 95, 0);
-        listButton[0] = new UpgradeButton(705, 95 + listLabel[0].getHeight() / 4, upLevelPrice, 0, playing);
+        listButton[0] = new UpgradeButton(705, 95 + listLabel[0].getHeight() / 4, 100, 0, playing);
 
         // XP
         listLabel[1] = new UpgradeLabel(450, 190, 1);
-        listButton[1] = new UpgradeButton(705, 190 + listLabel[0].getHeight() / 4, upXPPrice, 1, playing);
+        listButton[1] = new UpgradeButton(705, 190 + listLabel[0].getHeight() / 4, 150, 1, playing);
 
         // Gold
         listLabel[2] = new UpgradeLabel(450, 285, 2);
-        listButton[2] = new UpgradeButton(705, 285 + listLabel[0].getHeight() / 4, upGoldPrice, 2, playing);
+        listButton[2] = new UpgradeButton(705, 285 + listLabel[0].getHeight() / 4, 350, 2, playing);
 
         // Drop rate item
         listLabel[3] = new UpgradeLabel(450, 380, 3);
-        listButton[3] = new UpgradeButton(705, 380 + listLabel[0].getHeight() / 4, upDropRatePrice, 3, playing);
+        listButton[3] = new UpgradeButton(705, 380 + listLabel[0].getHeight() / 4, 500, 3, playing);
 
         // Reload
         reloadMapButton = new BufferedImage[2];

@@ -206,21 +206,16 @@ public class Enemy extends Entity {
     private void dropWeapon() {
         double drop = random.nextDouble();
         if (drop < 0.70) {
-            System.out.println("t1");
             playing.getObjectManager().dropItem(new Sword((int) (hitBox.x), (int) (hitBox.y + hitBox.height - ARMOR_HEIGHT * Game.SCALE), 0, enemyLevel));
         } else if (drop < 0.90) {
-            System.out.println("t2");
             playing.getObjectManager().dropItem(new Sword((int) (hitBox.x), (int) (hitBox.y + hitBox.height - ARMOR_HEIGHT * Game.SCALE), 1, enemyLevel));
         } else if (drop < 0.98) {
-            System.out.println("t3");
             playing.getObjectManager().dropItem(new Sword((int) (hitBox.x), (int) (hitBox.y + hitBox.height - ARMOR_HEIGHT * Game.SCALE), 2, enemyLevel));
         } else if (drop < 0.99) {
-            System.out.println("TerraPrisma");
             playing.getObjectManager().dropItem(new Sword((int) (hitBox.x), (int) (hitBox.y + hitBox.height - ARMOR_HEIGHT * Game.SCALE), 3, enemyLevel));
         } else {
             double t5DropChance = 0.0000001 / 100;
             if (drop < t5DropChance) {
-                System.out.println("God Slayer");
                 playing.getObjectManager().dropItem(new Sword((int) (hitBox.x), (int) (hitBox.y + hitBox.height - ARMOR_HEIGHT * Game.SCALE), 4, enemyLevel));
             }
         }
@@ -228,7 +223,6 @@ public class Enemy extends Entity {
 
     private void dropArmor() {
         double dropItemType = random.nextDouble();
-        System.out.println("drop armor");
         if (dropItemType < .25)
             dropArmorSet(0);
         else if (dropItemType < .50)
