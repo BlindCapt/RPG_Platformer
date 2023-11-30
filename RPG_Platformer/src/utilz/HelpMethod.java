@@ -254,8 +254,22 @@ public class HelpMethod {
                 Color color = new Color(img.getRGB(i, j));
                 int value = color.getBlue();
                 if (value == CHEST) {
-                    list.add(new Chest(i * Game.TILES_SIZE, j * Game.TILES_SIZE, value));
+                    Random random = new Random();
+                    int level = 1;
+                    if (i < 106) {
+                        if (j < 65) {
+                            level = random.nextInt(5) + 1;
+                        } else if (j > 65) {
+                            level = random.nextInt(5) + 6;
+                        }
+                    } else {
+                        level = random.nextInt(5) + 11;
+                    }
+
+                    list.add(new Chest(i * Game.TILES_SIZE, j * Game.TILES_SIZE, value, level));
                 }
+
+
             }
         }
         return list;

@@ -4,8 +4,7 @@ import entities.Player;
 import gameStates.Playing;
 import level.Level;
 import main.Game;
-import objects.equipment.Equipment;
-import objects.equipment.Helmet;
+import objects.equipment.*;
 import org.w3c.dom.css.Rect;
 import utilz.LoadSave;
 
@@ -16,6 +15,7 @@ import java.awt.*;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.Random;
 
 
 public class ObjectManager {
@@ -105,14 +105,33 @@ public class ObjectManager {
         for (Chest ch : chests) {
             if (ch.isActive() && !ch.doAnimation) {
                 if (ch.getHitbox().intersects(attackbox)) {
-                    ch.objState = 1;
-                    for (int i = 0; i < 20; i++)
-                        equipments.add(new Helmet(ch.x, (int) (ch.getHitbox().y + ch.getHitbox().height - ARMOR_HEIGHT * Game.SCALE), 0, ch.x / 10));
+                    ch.objState++;
+                    switch (ch.getChestType()) {
+                        case 0 -> chestArmorDrop(ch);
+                        case 1 ->
+                                equipments.add(new Sword(ch.x, (int) (ch.getHitbox().y + ch.getHitbox().height - ARMOR_HEIGHT * Game.SCALE), new Random().nextInt(3), ch.getLevel()));
+                        case 2 ->
+                                potions.add(new Potion((int) (ch.getHitbox().x + ch.getHitbox().width / 2), (int) (ch.getHitbox().y - ch.getHitbox().height / 2), 1));
+                    }
 
-//                    potions.add(new Potion((int) (ch.getHitbox().x + ch.getHitbox().width / 2), type == 0 ? (int) (ch.getHitbox().y - ch.getHitbox().height / 2) : (int) (ch.getHitbox().y), type));
                     return;
                 }
             }
+        }
+    }
+
+    private void chestArmorDrop(Chest ch) {
+        Random r = new Random();
+        int armorType = r.nextInt(4);
+        switch (armorType) {
+            case 0 ->
+                    equipments.add(new Helmet(ch.x, (int) (ch.getHitbox().y + ch.getHitbox().height - ARMOR_HEIGHT * Game.SCALE), new Random().nextInt(4), ch.getLevel()));
+            case 1 ->
+                    equipments.add(new Chestplate(ch.x, (int) (ch.getHitbox().y + ch.getHitbox().height - ARMOR_HEIGHT * Game.SCALE), new Random().nextInt(4), ch.getLevel()));
+            case 2 ->
+                    equipments.add(new Pants(ch.x, (int) (ch.getHitbox().y + ch.getHitbox().height - ARMOR_HEIGHT * Game.SCALE), new Random().nextInt(4), ch.getLevel()));
+            case 3 ->
+                    equipments.add(new Boots(ch.x, (int) (ch.getHitbox().y + ch.getHitbox().height - ARMOR_HEIGHT * Game.SCALE), new Random().nextInt(4), ch.getLevel()));
         }
     }
 
@@ -216,7 +235,7 @@ public class ObjectManager {
     private void drawChests(Graphics g, int xLvlOffset, int yLvlOffset) {
         for (Chest c : chests) {
             if (c.isActive()) {
-                g.drawImage(chestImages[c.objState][c.getAniIndex()],
+                g.drawImage(chestImages[c.getChestType() * 2 + c.objState][c.getAniIndex()],
                         (int) (c.getHitbox().x - c.getxDrawOffset() - xLvlOffset),
                         (int) (c.getHitbox().y - c.getyDrawOffset() - yLvlOffset),
                         CHEST_WIDTH,

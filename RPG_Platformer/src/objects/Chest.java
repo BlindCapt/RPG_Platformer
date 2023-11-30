@@ -3,15 +3,20 @@ package objects;
 import main.Game;
 import objects.GameObject;
 
+import java.util.Random;
+
 public class Chest extends GameObject {
     /// ------------------------------- ATTRIBUTE ------------------------------- ///
 
-    //
+    private int chestType;
+    private int level;
 
     /// ------------------------------- CONSTRUCTOR ------------------------------- ///
-    public Chest(int x, int y, int objType) {
+    public Chest(int x, int y, int objType, int level) {
         super(x, y, objType);
+        this.level = level;
         createHitbox();
+        chestType = new Random().nextInt(3);
     }
 
     /// ------------------------------- METHOD ------------------------------- ///
@@ -31,4 +36,12 @@ public class Chest extends GameObject {
 
     /// ------------------------------- GETTER AND SETTER ------------------------------- ///
 
+
+    public int getChestType() {
+        return chestType;
+    }
+
+    public int getLevel() {
+        return level;
+    }
 }

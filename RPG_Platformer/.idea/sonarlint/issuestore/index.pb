@@ -12,11 +12,7 @@ H
 M
 src/gameStates/GameState.java,a\b\ab33758711a3f43f43143ec96b37208150470595
 F
-src/objects/Chest.java,7\3\73694557aa84b590eb7b2bdfa304574803e2eee1
-F
 src/objects/Altar.java,a\4\a428cccf8e8bba0453ed2b5cff9832273cef8b5d
-G
-src/objects/Potion.java,8\a\8a7461cd29376e1a5becdcd94cdd4e31dcddaabb
 G
 src/main/GamePanel.java,1\3\13f35e19e9b4030437bb683f84c6bf77cae0f07e
 K
