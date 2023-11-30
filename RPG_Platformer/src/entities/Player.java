@@ -116,7 +116,7 @@ public class Player extends Entity {
         maxHealth = 100;
         baseHp = maxHealth;
         currentHealth = maxHealth;
-        attack = 100000;
+        attack = 10;
         defense = 2;
         stamina = 100;
 

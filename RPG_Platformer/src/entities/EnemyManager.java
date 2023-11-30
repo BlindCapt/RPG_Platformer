@@ -155,8 +155,8 @@ public class EnemyManager {
                         (int) (nec.getHitBox().x - xLvlOffset - NECROMANCER_DRAWOFFSET_X) + nec.flipX(),
                         (int) (nec.getHitBox().y - yLvlOffset - NECROMANCER_DRAWOFFSET_Y)
                         , NECROMANCER_WIDTH * nec.flipY(), NECROMANCER_HEIGHT, null);
-                nec.drawHitBox(g, xLvlOffset, yLvlOffset);
-                nec.drawAttackBox(g, xLvlOffset, yLvlOffset);
+//                nec.drawHitBox(g, xLvlOffset, yLvlOffset);
+//                nec.drawAttackBox(g, xLvlOffset, yLvlOffset);
             }
         }
         for (NightBorne nb : nightBorne) {

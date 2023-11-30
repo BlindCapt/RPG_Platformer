@@ -249,11 +249,11 @@ public class Playing extends State implements StateMethods {
 
 
         // debug boss room hitbox
-        Rectangle2D.Float hitbox = levelManager.getCurrentLevel().getBossRoomHitBoxBottom();
-        g.setColor(Color.red);
-        g.drawRect((int) (hitbox.x) - xLvlOffset, (int) (hitbox.y) - yLvlOffset, (int) (hitbox.width), (int) (hitbox.height));
-        hitbox = levelManager.getCurrentLevel().getBossRoomHitBoxCenter();
-        g.drawRect((int) (hitbox.x) - xLvlOffset, (int) (hitbox.y) - yLvlOffset, (int) (hitbox.width), (int) (hitbox.height));
+//        Rectangle2D.Float hitbox = levelManager.getCurrentLevel().getBossRoomHitBoxBottom();
+//        g.setColor(Color.red);
+//        g.drawRect((int) (hitbox.x) - xLvlOffset, (int) (hitbox.y) - yLvlOffset, (int) (hitbox.width), (int) (hitbox.height));
+//        hitbox = levelManager.getCurrentLevel().getBossRoomHitBoxCenter();
+//        g.drawRect((int) (hitbox.x) - xLvlOffset, (int) (hitbox.y) - yLvlOffset, (int) (hitbox.width), (int) (hitbox.height));
 
     }
 

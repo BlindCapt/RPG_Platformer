@@ -219,8 +219,8 @@ public class ObjectManager {
                         (int) (VFX1_HEIGHT * Game.SCALE),
                         null);
 
-                g.setColor(Color.RED);
-                g.drawRect((int) (p.getHitbox().x - xLvlOffset), (int) (p.getHitbox().y - yLvlOffset), (int) p.getHitbox().width, (int) p.getHitbox().height);
+//                g.setColor(Color.RED);
+//                g.drawRect((int) (p.getHitbox().x - xLvlOffset), (int) (p.getHitbox().y - yLvlOffset), (int) p.getHitbox().width, (int) p.getHitbox().height);
             }
         }
     }
