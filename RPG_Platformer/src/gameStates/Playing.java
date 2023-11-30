@@ -331,6 +331,8 @@ public class Playing extends State implements StateMethods {
     }
 
 
+
+
     /// ------------------------------- GETTER AND SETTER ------------------------------- ///
 
     public Player getPlayer() {

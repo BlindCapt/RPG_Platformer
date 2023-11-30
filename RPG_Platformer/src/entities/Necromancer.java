@@ -46,7 +46,7 @@ public class Necromancer extends Enemy {
         } else {
             switch (state) {
                 case IDLE -> {
-//                    newState(RUN);
+                    newState(RUN);
                 }
                 case RUN -> {
                     if (player.getCurrentHealth() > 0) {
@@ -69,7 +69,7 @@ public class Necromancer extends Enemy {
                         dir = -1;
                     }
                     if (aniIndex == 6 && !attackChecked) {
-                        playing.getObjectManager().getProjectiles().add(new Projectile((int)getHitBox().x, (int)getHitBox().y, dir));
+                        playing.getObjectManager().getProjectiles().add(new Projectile((int)getHitBox().x, (int)getHitBox().y, dir,playing));
                     }
 
                 }

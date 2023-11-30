@@ -183,6 +183,8 @@ public class ObjectManager {
         }
     }
 
+
+
     public void draw(Graphics g, int xLvlOffset, int yLvlOffset) {
         drawPotions(g, xLvlOffset, yLvlOffset);
         drawChests(g, xLvlOffset, yLvlOffset);
