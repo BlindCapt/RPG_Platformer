@@ -272,6 +272,7 @@ public class ObjectManager {
 
         for (Chest c : chests) {
             c.reset();
+            c.setChestType(new Random().nextInt(3));
         }
     }
 

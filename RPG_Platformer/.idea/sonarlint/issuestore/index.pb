@@ -15,8 +15,6 @@ F
 src/objects/Altar.java,a\4\a428cccf8e8bba0453ed2b5cff9832273cef8b5d
 G
 src/main/GamePanel.java,1\3\13f35e19e9b4030437bb683f84c6bf77cae0f07e
-K
-src/objects/GameObject.java,2\e\2ef40ac2497a320191cbe37825cc66c477e044f3
 P
  src/objects/equipment/Armor.java,3\8\38d27c031ccf962f5cfb83c1afe9e9977234c134
 T
