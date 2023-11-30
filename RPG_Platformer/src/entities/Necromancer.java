@@ -5,11 +5,14 @@ import main.Game;
 import objects.Projectile;
 
 import static main.Game.GAME_HEIGHT;
+import static utilz.Constants.ENEMY_ANI_SPEED;
 import static utilz.Constants.EnemyConstants.*;
 import static utilz.Constants.Direction.*;
 import static utilz.HelpMethod.IsSightClear;
 
 public class Necromancer extends Enemy {
+
+    private int attackCooldown = 0;
 
     public Necromancer(float x, float y) {
         super(x, y, NECROMANCER_WIDTH, NECROMANCER_HEIGHT, NECROMANCER);
@@ -26,6 +29,23 @@ public class Necromancer extends Enemy {
         updateBehavior(lvlData, player);
         updateAnimationTick();
         updateAttackBox();
+    }
+
+    @Override
+    protected void updateAnimationTick() {
+        aniTick++;
+        if (aniTick >= 15) {
+            aniTick = 0;
+            aniIndex++;
+            if (aniIndex >= GetSpriteAmount(enemyType, state)) {
+                aniIndex = 0;
+
+                switch (state) {
+                    case ATTACK, ATTACK_2, HURT -> state = IDLE;
+                    case DEATH -> active = false;
+                }
+            }
+        }
     }
 
     private void updateAttackBox() {
@@ -46,6 +66,9 @@ public class Necromancer extends Enemy {
         } else {
             switch (state) {
                 case IDLE -> {
+
+                    attackCooldown = 0;
+
                     newState(RUN);
                 }
                 case RUN -> {
@@ -54,13 +77,20 @@ public class Necromancer extends Enemy {
                             turnTowardsPlayer(player);
 
                             if (isPlayerCloseForAttack(player)) {
-                                newState(ATTACK);
+                                if (attackCooldown < 240) {
+                                    attackCooldown++;
+                                    return;
+                                } else
+                                    newState(ATTACK);
                             }
                         }
                     }
                     move(lvlData);
                 }
                 case ATTACK -> {
+                    while (attackCooldown < 120) {
+                        attackCooldown++;
+                    }
                     if (aniIndex == 0) {
                         attackChecked = false;
                     }
@@ -70,9 +100,9 @@ public class Necromancer extends Enemy {
                     }
                     if (aniIndex == 6 && !attackChecked) {
                         playing.getObjectManager().getProjectiles().add(new Projectile((int)getHitBox().x, (int)getHitBox().y, dir,playing));
-                    }
 
-                }
+                    }
+                    }
             }
         }
     }

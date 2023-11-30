@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
 import static utilz.Constants.Projectiles.*;
+import static utilz.HelpMethod.IsSolid;
 
 public class Projectile {
 
@@ -20,14 +21,21 @@ public class Projectile {
         this.playing = playing;
     }
 
-    public void update() {
+    public void update(int[][] lvlData) {
         hitbox.x += dir * SPEED;
         checkProjectilHit();
+        checkProjectileHitWall(lvlData);
     }
 
     private void checkProjectilHit() {
         if (this.hitbox.intersects(playing.getPlayer().getHitBox())) {
             playing.getPlayer().changeHealth(-1);
+        }
+
+    }
+
+    private void checkProjectileHitWall(int[][] lvlData) {
+        if (IsSolid(hitbox.x, hitbox.y, lvlData)) {
             active = false;
         }
     }

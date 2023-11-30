@@ -37,8 +37,6 @@ Q
 !src/objects/equipment/Helmet.java,5\b\5bfa2e2e71d30ab958f56a1fe8217749c88ab54a
 H
 src/ui/overlay/Slot.java,b\a\ba247f57e5deb4fc7ed6961277da779cef8c0dfd
-N
-src/objects/ObjectManager.java,a\1\a16583f8566c4a08a7baf3c5d140c326921ec28e
 T
 $src/ui/overlay/InventoryOverlay.java,d\5\d532d4462210b52d3436b0accc989881602965d9
 P
