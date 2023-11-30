@@ -17,8 +17,7 @@ import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 
 import static main.Game.*;
-import static utilz.Constants.ObjectConstants.LIFE_POTION;
-import static utilz.Constants.ObjectConstants.STM_POTION;
+import static utilz.Constants.ObjectConstants.*;
 
 public class Playing extends State implements StateMethods {
     /// ------------------------------- ATTRIBUTES ------------------------------- ///
@@ -259,6 +258,10 @@ public class Playing extends State implements StateMethods {
     }
 
     private void drawUI(Graphics g) {
+        BufferedImage lifePotion = LoadSave.GetSpriteAtlas(LoadSave.POTION_ATLAS).getSubimage(0, 16, 12, 16);
+
+        g.drawImage(lifePotion, GAME_WIDTH - 100, 20, POTION_WIDTH, POTION_HEIGHT, null);
+        g.drawString(String.valueOf(player.getNbLifePotions()), GAME_WIDTH - 80, 40);
         if (leftBorder == 0) {
             g.setColor(Color.RED);
             int bossHealthBar = (int) ((enemyManager.getNecromancer().get(0).getCurrentHealth() / (float) enemyManager.getNecromancer().get(0).getMaxHealth()) * (GAME_WIDTH - 40));
